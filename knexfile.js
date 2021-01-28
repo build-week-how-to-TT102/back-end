@@ -20,7 +20,7 @@ module.exports = {
   testing: {
     ...sharedConfig,
     connection: {
-      filename: './test.db3'
+      filename: './data/test.db3'
     }
   },
 
