@@ -6,7 +6,7 @@ const router = express.Router()
 
 router.post('/register', async (req, res, next) => {
   try {
-    const { username, password } = req.body
+    const { username, password, email } = req.body
 
     if(!username || !password) {
       return res.status(401).json({
@@ -24,6 +24,7 @@ router.post('/register', async (req, res, next) => {
 
     const newUser = await Users.add({
       username,
+      email,
       password: await bcrypt.hash(password, 14)
     })
 
