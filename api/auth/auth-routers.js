@@ -35,4 +35,40 @@ router.post('/register', async (req, res, next) => {
   }
 })
 
+router.post('/login', async (req, res, next) => {
+  try {
+    const { username, password } = req.body
+    const user = await Users.findByUsername(username)
+
+    if(!user) {
+      return res.status(401).json({
+        message: "invalid username or password"
+      })
+    }
+
+    const passwordValid = await bcrypt.compare(password, user.password)
+
+    if(!passwordValid) {
+      return res.status(401).json({
+        message: "invalid password"
+      })
+    }
+
+    const token = jwt.sign(
+    {
+      userId: user.id
+    },
+      process.env.JWT_SECRET
+    )
+
+    res.json({
+      message: `welcome, ${user.username}`,
+      token: token
+    })
+
+  } catch(err) {
+    next(err)
+  }
+})
+
 module.exports = router
