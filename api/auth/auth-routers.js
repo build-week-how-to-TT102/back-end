@@ -57,7 +57,7 @@ router.post('/login', async (req, res, next) => {
     {
       userId: user.id
     },
-      process.env.JWT_SECRET
+      process.env.JWT_SECRET || "testing"
     )
 
     res.json({
