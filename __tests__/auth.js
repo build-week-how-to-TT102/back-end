@@ -80,7 +80,7 @@ describe("Authentication integration tests", () => {
     expect(res2.body.message).toBe("welcome, test")
   })
 
-  it("successfully logs in", async () => {
+  it("sends error on invalid password", async () => {
     const res = await supertest(server)
       .post("/api/auth/register")
       .send({
