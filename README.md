@@ -27,14 +27,12 @@ Accepts:
     {
         username,
         password,
-        email
     }
 
 Returns:
 
     {
         username,
-        email,
         id
     }
 
