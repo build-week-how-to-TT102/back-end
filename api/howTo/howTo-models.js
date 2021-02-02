@@ -21,9 +21,14 @@ async function update(id, changes) {
   return findById(id)
 }
 
+function remove(id) {
+  return db("howtos").where({id}).del()
+}
+
 module.exports = {
   find,
   findById,
   add,
   update,
+  remove,
 }
