@@ -30,6 +30,24 @@ router.get("/:id/howtos/:howtoID", restrict(), async (req, res, next) => {
   }
 })
 
+router.put("/:id/howtos/:howtoID", restrict(), async (req, res, next) => {
+  try {
+    const howto = await HowTos.findById(req.params.howtoID)
+
+    if(!howto) {
+      return res.status(404).json({
+        message: "No How-To with that ID exists"
+      })
+    }
+
+    const updated = await HowTos.update(req.params.howtoID, req.body)
+
+    return res.status(200).json(updated)
+  } catch(err) {
+    next(err)
+  }
+})
+
 router.post("/:id", restrict(), async (req, res, next) => {
   try {
     const howto = await HowTos.add({
