@@ -12,7 +12,7 @@ server.use(cors())
 server.use(express.json())
 
 server.use('/api/auth', authRouter)
-server.use('/api/howtos', howtoRouter)
+server.use('/api/users', howtoRouter)
 
 server.use("/", (req, res, next) => {
   res.status(200).json({

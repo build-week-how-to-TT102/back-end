@@ -54,15 +54,14 @@ Returns:
         message: "welcome ${username}"
     }
 
-### **[GET] /api/howtos**
-Gets list of how-tos
+### **[GET] /api/users/:id**
+Gets list of how-tos for a user
 
 Returns:
   [
     {
         id: howtoId,
         title: howtoTitle,
-        description: howtoDescription,
-        userID: userId that created howto's
+        description: howtoDescription
     }
   ]

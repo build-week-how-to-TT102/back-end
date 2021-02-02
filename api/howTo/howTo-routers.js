@@ -3,9 +3,9 @@ const HowTos = require('./howTo-models')
 const router = express.Router()
 const { restrict } = require("../middleware/restrict");
 
-router.get("/", restrict(), async (req, res, next) => {
+router.get("/:id", restrict(), async (req, res, next) => {
   try{
-    const howtos = await HowTos.find()
+    const howtos = await HowTos.find(req.params.id)
 
     return res.status(200).json(howtos)
 
@@ -14,9 +14,9 @@ router.get("/", restrict(), async (req, res, next) => {
   }
 })
 
-router.get("/:id", restrict(), async (req, res, next) => {
+router.get("/:id/howtos/:howtoID", restrict(), async (req, res, next) => {
   try {
-    const howto = await HowTos.findById(req.params.id)
+    const howto = await HowTos.findById(req.params.howtoID)
 
     if(!howto) {
       return res.status(404).json({
@@ -30,9 +30,13 @@ router.get("/:id", restrict(), async (req, res, next) => {
   }
 })
 
-router.post("/", restrict(), async (req, res, next) => {
+router.post("/:id", restrict(), async (req, res, next) => {
   try {
-    const howto = await HowTos.add(req.body)
+    const howto = await HowTos.add({
+      title: req.body.title,
+      description: req.body.description,
+      userId: req.params.id
+    })
 
     return res.status(201).json(howto)
   } catch(err) {
