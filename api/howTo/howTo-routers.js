@@ -30,4 +30,14 @@ router.get("/:id", restrict(), async (req, res, next) => {
   }
 })
 
+router.post("/", restrict(), async (req, res, next) => {
+  try {
+    const howto = await HowTos.add(req.body)
+
+    return res.status(201).json(howto)
+  } catch(err) {
+    next(err)
+  }
+})
+
 module.exports = router
