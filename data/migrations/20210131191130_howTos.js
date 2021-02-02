@@ -4,6 +4,12 @@ exports.up = function(knex) {
     howto.increments()
     howto.string("title", 255).notNullable().unique()
     howto.string("description", 255).notNullable()
+    howto.integer("userId")
+      .notNullable()
+      .references("id")
+      .inTable("users")
+      .onUpdate("CASCADE")
+      .onDelete("CASCADE")
   })
 };
 

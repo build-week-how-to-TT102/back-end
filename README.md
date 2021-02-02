@@ -53,3 +53,16 @@ Returns:
         token: jwtToken,
         message: "welcome ${username}"
     }
+
+### **[GET] /api/howtos**
+Gets list of how-tos
+
+Returns:
+  [
+    {
+        id: howtoId,
+        title: howtoTitle,
+        description: howtoDescription,
+        userID: userId that created howto's
+    }
+  ]

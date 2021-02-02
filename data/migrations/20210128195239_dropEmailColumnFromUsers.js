@@ -7,6 +7,6 @@ exports.up = function(knex) {
 
 exports.down = function(knex) {
   return knex.schema.table("users", table => {
-    table.string("email", 255).notNullable();
+    table.string("email", 255).notNullable().default("none");
   })
 };
