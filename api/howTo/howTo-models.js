@@ -28,10 +28,11 @@ async function add(howto) {
     description: howto.description,
     userId: howto.userId
   })
-
+    if(howto.steps){
     howto.steps.forEach( async step => {
      await addSteps(step, id)
     })
+  }
 
   return findById(id)
 }
