@@ -79,7 +79,12 @@ Returns:
     {
         id: howtoId,
         title: howtoTitle,
-        description: howtoDescription
+        description: howtoDescription,
+        steps: [{
+          stepId,
+          step_number,
+          step_description
+        }]
     }
 
 ### **[POST] /api/users/:userId** *(restricted)*
@@ -90,7 +95,8 @@ Accepts:
 
     {
       title,
-      description
+      description,
+      steps(array)
     }
 
 Returns:
@@ -98,12 +104,17 @@ Returns:
     {
         id: howtoId,
         title: howtoTitle,
-        description: howtoDescription
+        description: howtoDescription,
+        steps: [{
+          stepId,
+          step_number,
+          step_description
+        }]
     }
 
 ### **[PUT] /api/users/:userId/howtos/:howtoID** *(restricted)*
 
-Creates a new how-to for a user
+Updates a how-to by id
 
 Accepts:
 
@@ -121,7 +132,7 @@ Returns:
 
 ### **[DELETE] /api/users/:userId/howtos/:howtoID** *(restricted)*
 
-Creates a new how-to for a user
+Deletes a how-to by id
 
 Returns:
 

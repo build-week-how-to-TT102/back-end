@@ -13,7 +13,7 @@ async function findById(id) {
   const steps = await db("steps as s")
     .join("howtos as h", "s.howtoId", "h.id")
     .where({howtoId: id})
-    .select("s.id as stepId", "s.step_number", "s.description as stepDescription")
+    .select("s.id as stepId", "s.step_number", "s.description as step_description")
 
     return {
       ...howto,
