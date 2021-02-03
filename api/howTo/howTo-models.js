@@ -49,6 +49,10 @@ async function update(id, changes) {
   return findById(id)
 }
 
+async function updateSteps(howtoId, changes) {
+  await db("steps").where({howtoId}).update(changes)
+}
+
 function remove(id) {
   return db("howtos").where({id}).del()
 }
@@ -58,5 +62,6 @@ module.exports = {
   findById,
   add,
   update,
+  updateSteps,
   remove,
 }

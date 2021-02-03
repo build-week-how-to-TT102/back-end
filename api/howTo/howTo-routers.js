@@ -39,10 +39,16 @@ router.put("/:id/howtos/:howtoID", restrict(), async (req, res, next) => {
         message: "No How-To with that ID exists"
       })
     }
+    // console.log(req.body)
+    // if(req.body.steps){
+    // updatedSteps = await HowTos.updateSteps(req.params.howtoID, req.body.steps)
+    // } 
+    const howToData = { title: req.body.title, description: req.body.description }
+    const updatedHowto = await HowTos.update(req.params.howtoID, howToData)
 
-    const updated = await HowTos.update(req.params.howtoID, req.body)
+    // const newHowto = await HowTos.findById(req.params.howtoID);
 
-    return res.status(200).json(updated)
+    return res.status(200).json(updatedHowto)
   } catch(err) {
     next(err)
   }

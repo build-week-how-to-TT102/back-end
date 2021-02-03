@@ -114,12 +114,13 @@ Returns:
 
 ### **[PUT] /api/users/:userId/howtos/:howtoID** *(restricted)*
 
-Updates a how-to by id
+Updates a how-to by id (does not update steps)
 
 Accepts:
 
     {
-      key: Changes 
+      title: changes,
+      description: changes 
     }
 
 Returns:
