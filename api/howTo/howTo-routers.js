@@ -53,7 +53,8 @@ router.post("/:id", restrict(), async (req, res, next) => {
     const howto = await HowTos.add({
       title: req.body.title,
       description: req.body.description,
-      userId: req.params.id
+      userId: req.params.id,
+      steps: req.body.steps
     })
 
     return res.status(201).json(howto)

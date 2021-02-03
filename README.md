@@ -56,17 +56,19 @@ Returns:
 
 ### **[GET] /api/users/:userId** *(restricted)*
 
-Gets list of how-tos for a user
+Gets an array of how-tos for a user
 
 Returns:
 
-  [
+   [
+
     {
         id: howtoId,
         title: howtoTitle,
         description: howtoDescription
     },
-  ]
+
+   ]
 
 ### **[GET] /api/users/:userId/howtos/:howtoID** *(restricted)*
 
