@@ -96,7 +96,7 @@ Accepts:
     {
       title,
       description,
-      steps(array)
+      steps(array, optional)
     }
 
 Returns:
