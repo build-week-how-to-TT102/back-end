@@ -51,7 +51,8 @@ Returns:
 
     {
         token: jwtToken,
-        message: "welcome ${username}"
+        message: "welcome ${username}",
+        id: userId
     }
 
 ### **[GET] /api/users/:userId** *(restricted)*
